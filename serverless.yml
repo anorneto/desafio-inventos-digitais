@@ -16,10 +16,6 @@ service: minions
 plugins:
   - serverless-offline
 
-# You can pin your service to only deploy with a specific Serverless version
-# Check out our docs for more details
-# frameworkVersion: "=X.X.X"
-
 provider:
   name: aws
   runtime: nodejs8.10
@@ -46,25 +42,20 @@ provider:
 #  environment:
 #    variable1: value1
 
-# you can add packaging information here
-#package:
-#  include:
-#    - include-me.js
-#    - include-me-dir/**
-#  exclude:
-#    - exclude-me.js
-#    - exclude-me-dir/**
+package:
+  include:
+    - mailer/**
 
 functions:
   hello:
-    handler: handler.hello
+    handler: handler.emailNotification
 
 #    The following are a few example events you can configure
 #    NOTE: Please make sure to change your handler code to work with those events
 #    Check the event documentation for details
     events:
       - http:
-          path: message/{name}
+          path: email/{form}
           method: get
 #      - websocket: $connect
 #      - s3: ${env:BUCKET}

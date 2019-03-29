@@ -11,6 +11,9 @@
   "devDependencies": {
     "serverless-offline": "^4.9.2"
   },
-  "dependencies": {},
+  "dependencies": {
+    "moment-timezone": "^0.5.23",
+    "nodemailer": "^6.0.0"
+  },
   "description": ""
 }
