@@ -1,0 +1,28 @@
+service: minions-backend
+
+plugins:
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: dev
+  region: us-east-2
+
+
+package:
+  include:
+    - mailer/**
+
+functions:
+  email:
+    handler: handler.emailNotification
+    events:
+      - http:
+          path: email
+          method: post
+          cors: true
+resources:
+  # API Gateway Errors
+  - ${file(mailer/api-gateway-errors.yml)}
+
