@@ -27,7 +27,7 @@ module.exports = data => {
                     <p style="line-height: 22px; font-size: 16px;">Cel :  ${data.user_cel} .</p>
                     <p style="line-height: 22px; font-size: 16px;">Minion Reservado: ${data.minions}  .</p>
                     <p style="line-height: 22px; font-size: 16px;">Tudo certo!</p>
-                    <p style="line-height: 22px; font-size: 16px;"><i>Anor' Serverless Function</i></p>
+                    <p style="line-height: 22px; font-size: 16px;"><i>Anor's Serverless Function</i></p>
                 </div>
             `;
             

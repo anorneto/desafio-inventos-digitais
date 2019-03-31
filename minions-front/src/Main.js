@@ -33,7 +33,12 @@ class Main extends Component {
                 user_cel: this.state.user_cel,
             })
         }).then( function (response) {
-            console.log(response);
+            if(response.ok){
+                window.alert("Reserva efetuada com sucesso!!");
+            } else {
+                window.alert("Error ao efetuar a reserva");
+                console.log(response);
+            }
         })
     };
 
@@ -55,14 +60,13 @@ class Main extends Component {
                     <Route path="/jerry" component={Jerry}/>
                     <Route path="/kevin" component={Kevin}/>
                     <Route path="/phil" component={Phil}/>      
-                    <div className="center">
-                        <h2>Fazer Reserva</h2>
+                    <div className="form-style">
+                        <div className="form-style-heading">Fazer Reserva</div>
                         <form onSubmit={this.handleSubmit}>
-                            <p>Nome : <input id="name" name="user_name" type="text" placeholder="John Doe" onChange={this.handleChange} /> </p>
-                            <p>Email : <input id="email" name="user_email" type="email" placeholder="example@email.com" onChange={this.handleChange}  /> </p>
-                            <p>Cel: <input id="cel" name="user_cel" type="text" placeholder="9999-8888" onChange={this.handleChange} /> </p>
-
-                            <p><button>Enviar Reserva!</button></p> 
+                            <label for for="field1"><span>Nome :</span> <input className="input-field" name="user_name" type="text" placeholder="John Doe" onChange={this.handleChange} /> </label>
+                            <label for="field2"><span>Email :</span> <input className="input-field"  name="user_email" type="email" placeholder="example@email.com" onChange={this.handleChange}  /> </label>
+                            <label for="field3"><span>Cel :</span> <input className="input-field"  name="user_cel" type="text" placeholder="9999-8888" onChange={this.handleChange} /> </label>
+                            <button>Enviar Reserva!</button>
                         </form>   
                     </div> 
                 </div>
